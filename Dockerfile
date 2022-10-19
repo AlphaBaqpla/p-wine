@@ -1,4 +1,5 @@
 FROM ubuntu:groovy
+
 RUN apt update && \
 apt install -y wget software-properties-common && \
 dpkg --add-architecture i386 && \
@@ -8,6 +9,3 @@ apt update && apt install winehq-stable -y && \
 apt remove -y wget software-properties-common  && \
 apt autoremove -y && \
 apt clean
-WORKDIR     /home/container
-COPY        ./entrypoint.sh /entrypoint.sh
-CMD         [ "/bin/bash", "/entrypoint.sh" ]
